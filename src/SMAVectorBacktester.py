@@ -105,10 +105,10 @@ class SMAVectorBacktester(object):
         opt = brute(self.update_and_run, (SMA1_range, SMA2_range), finish=None)
         return opt, -self.update_and_run(opt)
 
-    if __name__ == '__main__':
-        smabt = SMAVectorBacktester('EUR=', 42, 252, '2010-1-1', '2020-12-31')
-        print(smabt.run_strategy())
-        smabt.set_parameters(SMA1=20, SMA2=100)
-        print(smabt.run_strategy())
-        print(smabt.optimize_parameter((30, 56, 4), (200, 300, 4)))
+if __name__ == '__main__':
+    smabt = SMAVectorBacktester('EUR=', 42, 252, '2010-1-1', '2020-12-31')
+    print(smabt.run_strategy())
+    smabt.set_parameters(SMA1=20, SMA2=100)
+    print(smabt.run_strategy())
+    print(smabt.optimize_parameter((30, 56, 4), (200, 300, 4)))
 
