@@ -34,7 +34,7 @@ class MRVectorBacktester(MomVectorBacktester):
         # buy signals
         data['position'] = np.where(data['distance']< -threshold, 1, data['position'])
         # crossing of current price and SMA (zero distance)
-        data['position'] = np.where(data['distance'])*data['distance'].shift(1)<0, 0, data['position'])
+        data['position'] = np.where(data['distance']*data['distance'].shift(1)<0, 0, data['position'])
         data['strategy'] = data['position'].shift(1)*data['return']
         # determine when a trade take place
         trades = data['position'].diff().fillna(0)!=0
