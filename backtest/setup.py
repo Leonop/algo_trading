@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
 
-     name='ZX_backtesting',  
+     name='ZXbacktesting',  
 
      version='0.1',
 
