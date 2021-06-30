@@ -39,7 +39,7 @@ class SMAVectorBacktester(object):
         self.start = start
         self.end = end
         self.results = None
-        self.get_data()
+        self.get_date()
     
     def get_data(self):
         '''Retrieves and prepares the data'''

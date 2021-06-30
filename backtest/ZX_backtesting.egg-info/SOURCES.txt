@@ -1,5 +1,0 @@
-setup.py
-ZX_backtesting.egg-info/PKG-INFO
-ZX_backtesting.egg-info/SOURCES.txt
-ZX_backtesting.egg-info/dependency_links.txt
-ZX_backtesting.egg-info/top_level.txt
