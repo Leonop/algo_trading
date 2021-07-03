@@ -46,7 +46,7 @@ class SMAVectorBacktester(object):
         raw = pd.read_csv('http://hilpisch.com/pyalgo_eikon_eod_data.csv', index_col=0, parse_dates=True).dropna()
         raw = pd.DataFrame(raw[self.symbol])
         raw = raw.loc[self.start:self.end]
-        raw.rename(columns={self.symbol: 'price'})
+        raw.rename(columns={self.symbol: 'price'}, inplace=True)
         raw['return'] = np.log(raw/raw.shift(1))
         raw['SMA1'] = raw['price'].rolling(self.SMA1).mean()
         raw['SMA2'] = raw['price'].rolling(self.SMA2).mean()
@@ -64,7 +64,7 @@ class SMAVectorBacktester(object):
     def run_strategy(self):
         '''Backtests the trading strategy'''
         data = self.data.copy().dropna()
-        data['Position'] = np.where(data['SMA1']> data['SMA2'], 1, -1)
+        data['position'] = np.where(data['SMA1']> data['SMA2'], 1, -1)
         data['strategy'] = data['position'].shift(1)*data['return']
         data.dropna(inplace=True)
         data['creturns'] = data['position'].shift(1)*data['return']
